@@ -1567,6 +1567,10 @@ section,
 /*--------------------------------------------------------------
 # Clients Section
 --------------------------------------------------------------*/
+.clients{
+  background-color: white;
+  padding-bottom: 30px;
+}
 .clients .swiper-slide img {
   opacity: 0.5;
   transition: 0.3s;
@@ -1591,7 +1595,7 @@ section,
   width: 12px;
   height: 12px;
   opacity: 1;
-  background-color: color-mix(in srgb, var(--default-color), transparent 80%);
+  background-color: color-mix(in srgb, #000, transparent 80%);
 }
 
 .clients .swiper-pagination .swiper-pagination-bullet-active {
@@ -1601,30 +1605,87 @@ section,
 /*--------------------------------------------------------------
 # SERVICE AREA Section
 --------------------------------------------------------------*/
-.stateBody ul{
-  list-style: none;
-  font-size: 18px;
-}
-.stateBody ul li{
-  margin: 8px 0;
-}
-.stateBody h3{
-  font-size: 24 px;
-}
-.stateBody i{
-  margin-right: 8px;
-  color: var(--accent-color);
-}
-.stateBody ul li {
-  /* display: inline-block; */
-  transition: transform 0.3s ease;
-  transform-origin: center;
-  padding: 5px 0;
-  cursor: pointer;
+.state-area {
+  padding: 60px 20px;
+  background: var(--background-color);
+  color: var(--default-color);
+  width: 100%;
+  margin: 0 auto;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.stateBody ul li:hover {
-  transform: scale(1.1);
+.state-section {
+  margin-bottom: 60px;
+}
+
+.state-title {
+  font-size: 32px;
+  font-weight: 700;
+  margin-bottom: 24px;
+  color: var(--accent-color);
+  text-align: center;
+}
+
+.state-content {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.state-image img {
+  max-width: 350px;
+  width: 100%;
+  border-radius: 12px;
+  transition: transform 0.3s ease;
+}
+
+.state-image img:hover {
+  transform: scale(1.05);
+}
+
+.county-list {
+  list-style: none;
+  max-width: 350px;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(140px, 1fr));
+  gap: 12px;
+  font-size: 18px;
+}
+
+.county-list li {
+  background: var(--surface-color);
+  color: var(--background-color);
+  padding: 10px 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  cursor: default;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.county-list li:hover {
+  background: var(--accent-color);
+  color: var(--contrast-color);
+}
+
+@media (max-width: 768px) {
+  .state-content {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .county-list {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .state-image img {
+    max-width: 90vw;
+  }
 }
 
 /* testimonial */
