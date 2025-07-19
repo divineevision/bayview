@@ -1040,6 +1040,7 @@ section,
   background-color: var(--surface-color);
   border-radius: 0.5rem;
   box-shadow: 0 0 15px rgb(13 131 253);
+  width: 90%;
 }
 
 .about .contact-info i {
@@ -1088,8 +1089,8 @@ section,
 
 .about .image-wrapper .small-image {
   position: absolute;
-  top: 50%;
-  left: -5%;
+  top: 55%;
+  left: -3%;
   width: 45%;
   border: 8px solid var(--surface-color);
 }
@@ -1398,7 +1399,7 @@ section,
 # Call To Action Section
 --------------------------------------------------------------*/
 .call-to-action .container {
-  background-image: url("../../images/quote.jpg");
+  background-image: url("../../images/about3.jpg");
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
