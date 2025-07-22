@@ -1629,16 +1629,22 @@ section,
 
 .state-content {
   display: flex;
-  align-items: center;
-  gap: 40px;
   align-items: flex-start;
   justify-content: center;
+  gap: 40px;
   flex-wrap: wrap;
 }
 
-.state-image img {
+/* Ensure image and list share equal space */
+.state-image {
   max-width: 350px;
+  flex-shrink: 0;
+  order: 0;
+}
+
+.state-image img {
   width: 100%;
+  height: auto;
   border-radius: 12px;
   transition: transform 0.3s ease;
 }
@@ -1647,24 +1653,36 @@ section,
   transform: scale(1.05);
 }
 
+/* County list common styling */
 .county-list {
   list-style: none;
-  max-width: 350px;
   padding: 0;
   margin: 0;
   display: grid;
-  grid-template-columns: repeat(2, minmax(140px, 1fr));
   gap: 12px;
   font-size: 18px;
 }
 
+/* Specific for Texas */
+.county-list-texas {
+  grid-template-columns: repeat(3, minmax(120px, 1fr));
+  max-width: 420px;
+}
+
+/* Specific for Oklahoma */
+.county-list-oklahoma {
+  grid-template-columns: repeat(2, minmax(140px, 1fr));
+  max-width: 300px;
+}
+
+/* County item styling */
 .county-list li {
   background: var(--surface-color);
   color: var(--background-color);
   padding: 10px 16px;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.12);
-  cursor: default;
+  text-align: center;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
@@ -1673,19 +1691,38 @@ section,
   color: var(--contrast-color);
 }
 
+/* Mobile adjustments */
 @media (max-width: 768px) {
   .state-content {
     flex-direction: column;
     align-items: center;
   }
 
-  .county-list {
-    grid-template-columns: 1fr;
+  .state-image {
+    order: -1; /* Image comes first */
+    max-width: 90vw;
+  }
+
+  /* Mobile: both Texas and Oklahoma = 3 columns */
+  .county-list-texas,
+  .county-list-oklahoma {
+    grid-template-columns: repeat(3, 1fr);
     max-width: 100%;
   }
 
-  .state-image img {
-    max-width: 90vw;
+  .state-title {
+    font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .county-list li {
+    font-size: 16px;
+    padding: 8px 12px;
+  }
+
+  .state-title {
+    font-size: 24px;
   }
 }
 
